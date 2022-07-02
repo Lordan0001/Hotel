@@ -31,5 +31,6 @@ namespace MVVM.Exceptions
             IncomingReservation = incomingReservation;
         }
 
+
     }
 }
