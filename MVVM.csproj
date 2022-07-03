@@ -7,4 +7,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\hotel2.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\hotel2.ico" />
+  </ItemGroup>
+
 </Project>
