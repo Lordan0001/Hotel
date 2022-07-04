@@ -29,7 +29,7 @@
             <ListViewItem/>
             <ListViewItem/>
             <ListView.ItemContainerStyle>
-                <Style TargetType="ListView">
+                <Style TargetType="ListViewItem">
                     <Setter Property = "HorizontalContentAlignment" Value="Stretch"/>
                 </Style>
             </ListView.ItemContainerStyle>
@@ -47,7 +47,7 @@
                     <GridViewColumn Header="Username">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="SingletonSean"/>
+                                <TextBlock Text="SingletonSean" Padding="0 0 20 0"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -55,7 +55,7 @@
                     <GridViewColumn Header="Start Date">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="8/20/2021"/>
+                                <TextBlock Text="8/20/2021" Padding="0 0 20 0"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -63,7 +63,7 @@
                     <GridViewColumn Header="End Date">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="10/5/2021"/>
+                                <TextBlock Text="10/5/2021" Padding="0 0 20 0"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
