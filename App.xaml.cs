@@ -40,11 +40,7 @@ namespace MVVM
             }
 
 
-
-
-
-
-            IEnumerable<Reservation> reservations = hotel.GetReservationsForUser("SingletonSean");
+            IEnumerable<Reservation> reservations = hotel.GetAllReservations();
 
             base.OnStartup(e);
         }

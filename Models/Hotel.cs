@@ -25,9 +25,9 @@ namespace MVVM.Models
         /// <param name="username"></param>
         /// <returns>The reservations fo user.</returns>
 
-        public IEnumerable<Reservation> GetReservationsForUser(string username)
+        public IEnumerable<Reservation> GetAllReservations()
         {
-            return _reservationBook.GetReservationsForUser(username);   
+            return _reservationBook.GetAllReservations();   
         }
         /// <summary>
         /// Make a reservation

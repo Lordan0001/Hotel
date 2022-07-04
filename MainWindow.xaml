@@ -7,9 +7,10 @@
         xmlns:local="clr-namespace:MVVM"
         xmlns:views="clr-namespace:MVVM.Views"
         mc:Ignorable="d" 
-        Title="ReservRoom" Height="450" Width="800">
-    <Grid Margin="20 10">
-        <views:MakeReservationView/>
+        Title="ReservRoom" Height="450" Width="800"
+        FontSize="14">
+    <Grid Margin="20 10" MaxWidth="600">
+        <views:ReservationListingView/>
 
     </Grid>
 </Window>
