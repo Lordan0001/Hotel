@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVM.Commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -90,7 +91,7 @@ namespace MVVM.ViewModels
 
         public MakeReservationViewModel()
         {
-
+            SubmitCommand = new MakeReservationCommand();
         }
 
     }
