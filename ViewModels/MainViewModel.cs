@@ -13,7 +13,7 @@ namespace MVVM.ViewModels
         public ViewModelBase CurrentViewModel { get; }
         public MainViewModel(Hotel hotel)
         {
-            CurrentViewModel = new MakeReservationViewModel(hotel);
+            CurrentViewModel = new ReservationListingViewModel();
         }
     }
 }
