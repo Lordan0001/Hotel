@@ -1,4 +1,5 @@
 ﻿using MVVM.Commands;
+using MVVM.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,7 +56,7 @@ namespace MVVM.ViewModels
             }
         }
 
-        private DateTime _startDate;
+        private DateTime _startDate = new DateTime(2022,1,1);
 
         public DateTime StartDate
         {
@@ -71,7 +72,7 @@ namespace MVVM.ViewModels
         }
 
 
-        private DateTime _endDate;
+        private DateTime _endDate = new DateTime(2022,1,8);
 
         public DateTime EndDate
         {
@@ -89,9 +90,9 @@ namespace MVVM.ViewModels
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
 
-        public MakeReservationViewModel()
+        public MakeReservationViewModel(Hotel hotel)
         {
-            SubmitCommand = new MakeReservationCommand();
+            SubmitCommand = new MakeReservationCommand(this,hotel);
         }
 
     }
