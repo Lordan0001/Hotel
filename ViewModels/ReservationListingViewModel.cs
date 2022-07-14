@@ -1,5 +1,6 @@
 ﻿using MVVM.Commands;
 using MVVM.Models;
+using MVVM.Stores;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,11 +18,11 @@ namespace MVVM.ViewModels
         private readonly ObservableCollection<ReservationViewModel> _reservations;
         public IEnumerable<ReservationViewModel> Reservations => _reservations;
 
-        public ReservationListingViewModel()
+        public ReservationListingViewModel(NavigationStore navigationStore)
         {
             _reservations = new ObservableCollection<ReservationViewModel>();
 
-            MakeReservationCommand = new NavigateCommand();
+            MakeReservationCommand = new NavigateCommand(navigationStore);
 
             _reservations.Add(new ReservationViewModel(new Reservation(new RoomID(1, 2), "SingletoSean", DateTime.Now, DateTime.Now)));
             _reservations.Add(new ReservationViewModel(new Reservation(new RoomID(3, 2), "Joe", DateTime.Now, DateTime.Now)));

@@ -1,4 +1,5 @@
 ﻿using MVVM.Models;
+using MVVM.Stores;
 using MVVM.Views;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,22 @@ namespace MVVM.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        public ViewModelBase CurrentViewModel { get; }
-        public MainViewModel(Hotel hotel)
+        private readonly NavigationStore _navigationStore;
+
+        public MainViewModel(NavigationStore navigationStore)
         {
-            CurrentViewModel = new ReservationListingViewModel();
+            _navigationStore = navigationStore;
+
+            _navigationStore.CurrentViewModelChanged += OnCurrentViewChanged;
         }
+
+        private void OnCurrentViewChanged()
+        {
+           OnPropertyChanged(nameof(CurrentViewModel));
+        }
+
+        public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
+
+       
     }
 }

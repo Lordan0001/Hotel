@@ -6,12 +6,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVM"
         xmlns:views="clr-namespace:MVVM.Views"
+        xmlns:vms="clr-namespace:MVVM.ViewModels"
         mc:Ignorable="d" 
         Title="ReservRoom" Height="450" Width="800"
         FontSize="14">
     <Grid Margin="20 10" MaxWidth="600">
-        <views:ReservationListingView DataContext="{Binding CurrentViewModel}"/>
-        
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:MakeReservationViewModel}">
+                <views:MakeReservationView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:ReservationListingViewModel}">
+                <views:ReservationListingView/>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ContentControl Content="{Binding CurrentViewModel}"/>
+
 
     </Grid>
 </Window>
