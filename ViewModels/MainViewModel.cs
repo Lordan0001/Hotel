@@ -27,6 +27,6 @@ namespace MVVM.ViewModels
 
         public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
 
-       //7:04
+  
     }
 }

@@ -45,7 +45,7 @@ namespace MVVM
 
         private ReservationListingViewModel CreateReservationViewModel()
         {
-            return new ReservationListingViewModel(new NavigationService(_navigationStore, CreateReservationViewModel));
+            return new ReservationListingViewModel(new NavigationService(_navigationStore, CreateMakeReservationViewModel));
         }
 
     }
