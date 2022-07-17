@@ -1,10 +1,12 @@
 ﻿using MVVM.Exceptions;
 using MVVM.Models;
+using MVVM.Services;
 using MVVM.Stores;
 using MVVM.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Windows;
+
 
 namespace MVVM
 {
@@ -38,12 +40,12 @@ namespace MVVM
 
         private MakeReservationViewModel CreateMakeReservationViewModel()
         {
-            return new MakeReservationViewModel(_hotel, _navigationStore, CreateReservationViewModel);
+            return new MakeReservationViewModel(_hotel,new NavigationService( _navigationStore, CreateReservationViewModel));
         }
 
         private ReservationListingViewModel CreateReservationViewModel()
         {
-            return new ReservationListingViewModel(_navigationStore, CreateMakeReservationViewModel);
+            return new ReservationListingViewModel(new NavigationService(_navigationStore, CreateReservationViewModel));
         }
 
     }
