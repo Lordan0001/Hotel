@@ -15,20 +15,31 @@ namespace MVVM.ViewModels
     {
         public ICommand MakeReservationCommand { get; }
 
+        private readonly Hotel _hotel;
         private readonly ObservableCollection<ReservationViewModel> _reservations;
         public IEnumerable<ReservationViewModel> Reservations => _reservations;
 
-        public ReservationListingViewModel(Services.NavigationService makeReservationNavigationService)
+        public ReservationListingViewModel(Hotel hotel, Services.NavigationService makeReservationNavigationService)
         {
+            _hotel = hotel;
             _reservations = new ObservableCollection<ReservationViewModel>();
 
             MakeReservationCommand = new NavigateCommand(makeReservationNavigationService);
+            UpdateReservations();
 
-            _reservations.Add(new ReservationViewModel(new Reservation(new RoomID(1, 2), "SingletoSean", DateTime.Now, DateTime.Now)));
-            _reservations.Add(new ReservationViewModel(new Reservation(new RoomID(3, 2), "Joe", DateTime.Now, DateTime.Now)));
-            _reservations.Add(new ReservationViewModel(new Reservation(new RoomID(2, 4), "Mary", DateTime.Now, DateTime.Now)));
 
         }
 
+        private void UpdateReservations()
+        {
+            _reservations.Clear();
+
+            foreach (var reservation in _hotel.GetAllReservations())
+            {
+                ReservationViewModel reservationViewModel = new ReservationViewModel(reservation);
+                _reservations.Add(reservationViewModel);
+            } 
+
+        }
     }
 }
